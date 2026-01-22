@@ -1,0 +1,165 @@
+:root {
+    --bg: #0b0f14;
+    --panel: rgba(22, 27, 34, 0.85);
+    --panel-2: rgba(18, 22, 28, 0.9);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e6edf3;
+    --muted: rgba(230, 237, 243, 0.62);
+
+    --accent: #2f81f7;
+    --danger: #f85149;
+    --warning: #d29922;
+
+    --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+    --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(900px 500px at 15% 10%, rgba(47,129,247,0.18), transparent 60%),
+      radial-gradient(900px 500px at 80% 0%, rgba(248,81,73,0.10), transparent 55%),
+      radial-gradient(700px 450px at 60% 85%, rgba(210,153,34,0.10), transparent 55%),
+      linear-gradient(180deg, #070a0f 0%, #0b0f14 55%, #070a0f 100%);
+}
+
+.app {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+/* Header */
+.header {
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 650;
+    letter-spacing: 0.2px;
+}
+
+.subtitle {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* KPIs */
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.kpi {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+
+.kpi::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(500px 120px at 20% 0%, rgba(47,129,247,0.25), transparent 60%);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.kpi-label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.kpi.danger::before {
+    background: radial-gradient(500px 120px at 20% 0%, rgba(248,81,73,0.25), transparent 60%);
+}
+
+.kpi.danger .kpi-value {
+    color: var(--danger);
+}
+
+/* Panel */
+.panel {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 2px);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Chart */
+.chart-wrap {
+    margin-bottom: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+thead th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(230,237,243,0.7);
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px;
+    vertical-align: top;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+td.score-high { color: var(--danger); font-weight: 700; }
+td.score-medium { color: var(--warning); font-weight: 700; }
+td.score-low { color: var(--accent); font-weight: 700; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .kpis {
+        grid-template-columns: 1fr;
+    }
+}

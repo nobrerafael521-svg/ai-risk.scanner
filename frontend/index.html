@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>AI Risk Scanner – Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="app">
+
+        <header class="header">
+            <h1>AI Risk Scanner</h1>
+            <p class="subtitle">Security Risk Analytics Dashboard</p>
+        </header>
+
+      
+        <section class="kpis">
+            <div class="kpi">
+                <span class="kpi-label">Total Events</span>
+                <span class="kpi-value" id="kpi-total-events">–</span>
+            </div>
+
+            <div class="kpi">
+                <span class="kpi-label">Users</span>
+                <span class="kpi-value" id="kpi-total-users">–</span>
+            </div>
+
+            <div class="kpi danger">
+                <span class="kpi-label">High Risk Users</span>
+                <span class="kpi-value" id="kpi-high-risk">–</span>
+            </div>
+        </section>
+
+      
+        <section class="panel">
+            <h2>Risk Analytics</h2>
+
+            
+            <div class="chart-wrap">
+               <canvas id="top-risk-chart" height="260"></canvas>
+
+            </div>
+
+            
+            <table id="risk-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Score</th>
+                        <th>High Risk Events</th>
+                        <th>Reasons</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    
+    <script src="js/api.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
